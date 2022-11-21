@@ -155,15 +155,10 @@ function calculator( button ){
         }
     }
     else if( button.type == "calculate" ){
-        
-        // PUSH WHAT'S LEFT IN TEMP TO RESULT AND JOIN RESULT
         let result_joined = data.result.join('');
-
-        // CLEAR ALL ARRAYS, NO NEED TO SAVE ANYTHING ANYMORE
         data.operation = [];
         data.result = [];
 
-        // CHECK IF THERE WAS A SYNATX ERROR IN THE operation
         let result_final;
         try {
             result_final = eval(result_joined); 
@@ -175,14 +170,10 @@ function calculator( button ){
             }
         }
 
-        // FORMAT THE RESULT
+        
         result_final = formatResult(result_final);
-
-        // SAVE RESULT FOR ANY FUTURE USE
         data.operation.push(result_final);
         data.result.push(result_final);
-        
-        // UPDATE OUTPUT
         updateOutputResult( result_final );
 
         return;
